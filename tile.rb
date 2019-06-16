@@ -24,8 +24,10 @@ class Tile
     def render 
         if flagged
             print 'F'
-        elsif revealed
+        elsif revealed && !bombed
             print '_'
+        elsif revealed && bombed
+            print 'B'
         else 
             print '*'
         end

@@ -11,6 +11,7 @@ class Board
                 @tiles[i][j] = Tile.new(self, [i,j])
             end
         end
+        seed_bombs
     end
 
     def seed_bombs
@@ -20,6 +21,10 @@ class Board
             end
         end
     end
+
+    # def (pos)
+    #     @tiles[pos[0], pos[1]]
+    # end
 
     def render
         @tiles.each_with_index do |row, i|
@@ -31,7 +36,3 @@ class Board
     end
 
 end
-
-board = Board.new(3)
-board.seed_bombs
-board.render
