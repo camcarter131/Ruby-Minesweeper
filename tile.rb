@@ -22,12 +22,12 @@ class Tile
     end
 
     def render 
-        if @flagged
-            p 'F'
-        elsif @revealed
-            p '_'
+        if flagged
+            print 'F'
+        elsif revealed
+            print '_'
         else 
-            p '*'
+            print '*'
         end
     end
 
