@@ -23,9 +23,8 @@ class Game
         end
 
         if move_type == 'r'
-            @board.tiles[pick_row][pick_col].revealed = true;
-            p @board.tiles[pick_row][pick_col].position
-            p @board.tiles[pick_row][pick_col].neighbors
+            @board.tiles[pick_row][pick_col].revealed = true
+            @board.tiles[pick_row][pick_col].check_adjacent_tiles
         elsif move_type == 'f'
             @board.tiles[pick_row][pick_col].flagged = true;
         else 
