@@ -37,7 +37,7 @@ class Tile
         @neighbors.each do |pos|
             bomb_count = adjacent_bombs
             if bomb_count > 0
-                @board.tiles[pos[0]][pos[1]].numbered = bomb_count
+                @board.tiles[pos[0]][pos[1]].numbered = bomb_count if !@board.tiles[pos[0]][pos[1]].bombed
             end 
         end 
         if @neighbors.none? {|pos| @board.tiles[pos[0]][pos[1]].numbered > 0}
