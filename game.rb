@@ -15,13 +15,24 @@ class Game
         pick_row = gets.chomp.to_i
         puts 'Column: '
         pick_col = gets.chomp.to_i
+
+        system "clear"
+        if (pick_row < 0 || pick_row >= @board.size) || (pick_col < 0 || pick_col >= @board.size)
+            puts 'Please enter valid row and column'
+            return
+        end
+
         if move_type == 'r'
             @board.tiles[pick_row][pick_col].revealed = true;
+            p @board.tiles[pick_row][pick_col].position
+            p @board.tiles[pick_row][pick_col].neighbors
         elsif move_type == 'f'
             @board.tiles[pick_row][pick_col].flagged = true;
         else 
             puts "Please enter valid move type ('r' or 'f')"
+            return 
         end
+        
     end
 
     def game_over?

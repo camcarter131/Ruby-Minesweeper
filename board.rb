@@ -1,7 +1,7 @@
 require_relative "tile"
 
 class Board 
-    attr_reader :size, :tiles
+    attr_accessor :size, :tiles
 
     def initialize(size) 
         @size = size;
@@ -9,17 +9,10 @@ class Board
         @tiles.each_with_index do |row, i|
             row.each_with_index do |col, j|
                 @tiles[i][j] = Tile.new(self, [i,j])
-            end
-        end
-        seed_bombs
-    end
-
-    def seed_bombs
-        @tiles.each_with_index do |row, i|
-            row.each_with_index do |col, j|
                 @tiles[i][j].bombed = true if rand(3) == 0
             end
         end
+        
     end
 
     # def (pos)
@@ -30,6 +23,7 @@ class Board
         @tiles.each_with_index do |row, i|
             row.each_with_index do |col, j|
                 @tiles[i][j].render
+                puts '' if j == @size - 1
                 puts '' if j == @size - 1
             end
         end
